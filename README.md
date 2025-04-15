@@ -18,6 +18,17 @@ A simple and clean Task Manager built with **Angular**, designed to help users m
 
 ---
 
+## 📸 Screenshots
+
+### Login Screen
+![Login Screen](Screenshot%202025-04-15%20231459.png)
+
+
+![Dashboard](dashboard.png)
+
+### Home View
+![Home View](Home.png)
+
 ## 🧰 Tech Stack
 
 - **Framework:** Angular
