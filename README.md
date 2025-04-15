@@ -25,6 +25,7 @@ A simple and clean Task Manager built with **Angular**, designed to help users m
 ![alt text](frontend/assets/Home.png)
 
 ![Dashboard](dashboard.png)
+![alt text](frontend/assets/login.png)
 
 ### Home View
 ![Home View](Home.png)
