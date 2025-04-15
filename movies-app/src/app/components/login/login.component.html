@@ -1,23 +1,32 @@
+<!-- src/app/components/login/login.component.html -->
 <div class="login-form">
     <h2>Login</h2>
+    
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div>
+      <!-- Email -->
+      <div class="form-group">
         <label for="email">Email</label>
-        <input id="email" formControlName="email" type="email" placeholder="Enter your email">
+        <input id="email" formControlName="email" type="email" placeholder="Enter your email" />
         <div *ngIf="f['email'].invalid && f['email'].touched" class="error">
-          Enter a valid email
+          Please enter a valid email
         </div>
       </div>
-  
-      <div>
+      
+      <!-- Password -->
+      <div class="form-group">
         <label for="password">Password</label>
-        <input id="password" formControlName="password" type="password" placeholder="Enter your password">
+        <input id="password" formControlName="password" type="password" placeholder="Enter your password" />
         <div *ngIf="f['password'].invalid && f['password'].touched" class="error">
-          Password must be at least 8 characters long
+          Password is required (minimum 8 characters)
         </div>
       </div>
-  
+      
+      <!-- Submit -->
       <button type="submit" [disabled]="loginForm.invalid">Login</button>
     </form>
+    
+    <p class="register-link">
+      Don't have an account? <a routerLink="/register">Register here</a>
+    </p>
   </div>
   

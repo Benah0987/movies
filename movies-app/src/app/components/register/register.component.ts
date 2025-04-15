@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Add these imports
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // <-- ✅ Needed for ngIf, ngClass, etc.
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms'; // Ensure ReactiveFormsModule is imported
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [CommonModule, ReactiveFormsModule], // Include ReactiveFormsModule in imports
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
   registerForm: FormGroup;
@@ -17,7 +18,7 @@ export class RegisterComponent {
     this.registerForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 

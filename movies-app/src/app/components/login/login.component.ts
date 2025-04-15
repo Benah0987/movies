@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';  // Import Router
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], // ✅ Add this line
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {  // Inject Router
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -25,9 +26,9 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // For now, just log the form values and simulate redirect
       console.log(this.loginForm.value);
-      // You can add routing logic here to redirect to dashboard
+      // Simulate a successful login (you can replace this with actual API call)
+      this.router.navigate(['/dashboard']);  // Redirect to the dashboard after successful login
     }
   }
 }
