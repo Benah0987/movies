@@ -1,16 +1,20 @@
-<!-- src/app/components/dashboard/dashboard.component.html -->
-
 <div class="dashboard">
+  <!-- Welcome Header -->
+  <header class="header">
+    <h1>Welcome to Your Dashboard 👋</h1>
+    <p>Navigate through your tasks and pages with ease</p>
+  </header>
+
   <!-- Responsive Menu -->
   <nav class="menu">
     <ul>
-      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-      <li><a routerLink="/page2" routerLinkActive="active">Page 2</a></li>
+      <li><a routerLink="/home" routerLinkActive="active">🏠 Home</a></li>
+      <li><a routerLink="/second-page" routerLinkActive="active">📄 Page 2</a></li>
     </ul>
   </nav>
 
   <!-- Content Area -->
   <div class="content">
-    <router-outlet></router-outlet> <!-- Placeholder for routed content -->
+    <router-outlet></router-outlet>
   </div>
 </div>

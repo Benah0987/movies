@@ -12,6 +12,11 @@ export class SecondPageComponent {
   cards = [
     { title: 'Card 1', content: 'Content of Card 1' },
     { title: 'Card 2', content: 'Content of Card 2' },
-    // Add more cards here
+    { title: 'Card 3', content: 'Content of Card 3' }, // Add more cards here if needed
   ];
+
+  onCardClick(card: any): void {
+    console.log(`Clicked: ${card.title}`);
+    // You can add navigation, modals, or logic here
+  }
 }

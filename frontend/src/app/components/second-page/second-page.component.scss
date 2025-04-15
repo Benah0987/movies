@@ -1,5 +1,7 @@
-/* General styles for the cards */
 .card-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -9,39 +11,50 @@
 .card {
   width: 300px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
 }
 
 .card h3 {
   font-size: 1.5em;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .card p {
   font-size: 1em;
-  color: #555;
+  color: #666;
+}
+
+/* Hover effect */
+.card:hover {
+  background: linear-gradient(145deg, #dfefff, #eef9ff);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 98, 255, 0.15);
+  border-color: #b3d4ff;
 }
 
 /* Desktop */
 @media (min-width: 1024px) {
   .card {
-    width: 30%; /* 3 cards in a row */
+    width: 30%;
   }
 }
 
 /* Tablet */
 @media (max-width: 1023px) and (min-width: 768px) {
   .card {
-    width: 48%; /* 2 cards in a row */
+    width: 48%;
   }
 }
 
 /* Mobile */
 @media (max-width: 767px) {
   .card {
-    width: 100%; /* All cards in a single column */
+    width: 100%;
   }
 }
