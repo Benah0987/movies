@@ -1,0 +1,43 @@
+<div class="register-form">
+    <h2>Register</h2>
+  
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input id="fullName" formControlName="fullName" type="text" placeholder="Enter your full name" />
+        <div *ngIf="f['fullName'].invalid && f['fullName'].touched" class="error">
+          Full name is required
+        </div>
+      </div>
+  
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" placeholder="Enter your email" />
+        <div *ngIf="f['email'].invalid && f['email'].touched" class="error">
+          Enter a valid email
+        </div>
+      </div>
+  
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" placeholder="Create a password" />
+        <div *ngIf="f['password'].invalid && f['password'].touched" class="error">
+          Password must be at least 8 characters
+        </div>
+      </div>
+  
+      <!-- Submit -->
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    </form>
+  
+    <!-- Login link -->
+   <!-- Login link -->
+<p class="login-link">
+    Already have an account? <a href="/login">Login here</a>
+  </p>
+  
+  </div>
+  
