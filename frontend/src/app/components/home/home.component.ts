@@ -1,24 +1,25 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';  // Import CommonModule
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],  // Ensure CommonModule is included here
+  imports: [CommonModule, FormsModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  newTask: string = '';
   tasks: string[] = [];
-  task: string = '';         // For new task input
-  editTask: string = '';     // For task edit input
-  isEditing: boolean = false; // Flag to manage editing state
-  editingIndex: number | null = null; // Track which task is being edited
+  editingIndex: number | null = null;
+  editedTask: string = '';  // Add this property for editing a task
+  isEditing: boolean = false;  // Track if editing is active
 
   addTask() {
-    if (this.task) {
-      this.tasks.push(this.task);
-      this.task = '';  // Reset the input field
+    if (this.newTask.trim()) {
+      this.tasks.push(this.newTask.trim());
+      this.newTask = '';
     }
   }
 
@@ -26,34 +27,21 @@ export class HomeComponent {
     this.tasks.splice(index, 1);
   }
 
-  updateTask(index: number) {
-    this.editingIndex = index;          // Track the task being edited
-    this.editTask = this.tasks[index];  // Set the task to be edited
-    this.isEditing = true;              // Display the edit input field
+  editTask(index: number) {
+    this.editingIndex = index;
+    this.editedTask = this.tasks[index];  // Populate editedTask with the task content
+    this.isEditing = true;  // Enable the editing mode
   }
 
   saveTask() {
-    if (this.editingIndex !== null && this.editTask) {
-      this.tasks[this.editingIndex] = this.editTask; // Save the updated task
-      this.cancelEdit(); // Reset editing mode
+    if (this.editedTask.trim()) {
+      this.tasks[this.editingIndex!] = this.editedTask.trim();  // Update the task
+      this.cancelEdit();  // Close the editing modal
     }
   }
 
   cancelEdit() {
-    this.isEditing = false;           // Hide edit input
-    this.editTask = '';               // Reset the edit input field
-    this.editingIndex = null;         // Clear the editing index
-  }
-
-  // This method handles input changes for the task input field
-  onInputChange(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    this.task = input.value;
-  }
-
-  // This method handles input changes for the edit task input field
-  onEditInputChange(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    this.editTask = input.value;
+    this.isEditing = false;  // Disable editing mode
+    this.editedTask = '';  // Clear the editedTask field
   }
 }
